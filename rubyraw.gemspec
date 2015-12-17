@@ -6,7 +6,7 @@ require 'rubyraw/version'
 Gem::Specification.new do |spec|
   spec.name          = "rubyraw"
   spec.version       = Rubyraw::VERSION
-  spec.authors       = ["Masa Jobara"]
+  spec.authors       = ["wolfmasa"]
   spec.email         = ["wolf.masa@gmail.com"]
 
   spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
