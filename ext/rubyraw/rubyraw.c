@@ -10156,11 +10156,25 @@ call_decode(VALUE self){
     return INT2NUM(0);
 }
 
+static VALUE
+decode_raw_main(VALUE path, VALUE opt){
+    Check_Type(path, T_STRING);
+    char* raw_path = StringValue(path);
+    
+    Check_Type(opt, T_HASH);
+
+    // path => char*
+    // opt => char* []
+// int ret = decode_raw(argc, argv)
+//  ret => bool
+}
+
 void
 Init_rubyraw(void)
 {
     VALUE rb_mRubyraw = rb_define_module("Rubyraw");
     VALUE rb_mRaw = rb_define_class_under(rb_mRubyraw, "Raw", rb_cObject);
     rb_define_method(rb_mRaw, "call_decode", call_decode, 0);
+    rb_define_method(rb_mRaw, "decode_raw_main", 2)
 }
 

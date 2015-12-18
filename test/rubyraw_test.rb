@@ -13,4 +13,8 @@ class RubyrawTest < Minitest::Test
   def test_it_can_call_decode
     assert(Rubyraw::Raw.new.call_decode()==0)
   end
+
+  def test_filepath_input_decode_function
+    assert(Rubyraw::Raw.new.decode("hogehoge.CR2"))
+  end
 end
