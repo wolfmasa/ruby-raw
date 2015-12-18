@@ -1,8 +1,12 @@
 # Rubyraw
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubyraw`. To experiment with that code, run `bin/console` for an interactive prompt.
+Library to decode Camera Raw file.
+Decode processing is constructed by DCRaw.
 
-TODO: Delete this and the text above, and describe your gem
+DCRaw is a most famous program that decode raw file.
+This gem library include the dcraw.c as C-language extention.
+
+If you want to decode raw file by ruby. This gem help you.
 
 ## Installation
 
@@ -22,7 +26,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+opt ={...} # hash type of decode option
+decode(path, opt)
+```
 
 ## Development
 
@@ -32,5 +39,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rubyraw. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/wolfmasa/rubyraw.
 
