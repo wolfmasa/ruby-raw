@@ -9737,8 +9737,6 @@ int CLASS decode_raw(int argc, const char **argv)
 #ifndef NO_LCMS
   const char *cam_profile=0, *out_profile=0;
 #endif
-  printf("call me.\n");
-  return 1;
 
 #ifndef LOCALTIME
   putenv ((char *) "TZ=UTC");
@@ -10150,23 +10148,19 @@ cleanup:
   return status;
 }
 
-static VALUE
-call_decode(VALUE self){
-    decode_raw(1, NULL);
-    return INT2NUM(0);
-}
-
-static VALUE
-decode_raw_main(VALUE path, VALUE opt){
+VALUE
+decode(VALUE self, VALUE path, VALUE opt){
     Check_Type(path, T_STRING);
-    char* raw_path = StringValue(path);
-    
-    Check_Type(opt, T_HASH);
+    //Check_Type(opt, T_HASH);
 
-    // path => char*
-    // opt => char* []
-// int ret = decode_raw(argc, argv)
-//  ret => bool
+    char* v[16] = {0};
+    v[0] = "ruby.exe";
+    v[1] = StringValuePtr(path);
+    int c = 2;
+
+    decode_raw(c, &v);
+
+    return INT2NUM(0);
 }
 
 void
@@ -10174,7 +10168,6 @@ Init_rubyraw(void)
 {
     VALUE rb_mRubyraw = rb_define_module("Rubyraw");
     VALUE rb_mRaw = rb_define_class_under(rb_mRubyraw, "Raw", rb_cObject);
-    rb_define_method(rb_mRaw, "call_decode", call_decode, 0);
-    rb_define_method(rb_mRaw, "decode_raw_main", 2)
+    rb_define_method(rb_mRaw, "decode", decode, 2);
 }
 

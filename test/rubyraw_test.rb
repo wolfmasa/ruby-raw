@@ -10,11 +10,14 @@ class RubyrawTest < Minitest::Test
 #    assert false
 #  end
 
-  def test_it_can_call_decode
-    assert(Rubyraw::Raw.new.call_decode()==0)
-  end
+require 'fileutils'
 
   def test_filepath_input_decode_function
-    assert(Rubyraw::Raw.new.decode("hogehoge.CR2"))
+    filename = "IMG_2112.CR2"
+    ppm = File.basename(filename) + '.ppm'
+    FileUtils.rm ppm
+    assert(! ppm)
+    assert(Rubyraw::Raw.new.decode(filename, {})==0)
+    assert(File.exist?(ppm))
   end
 end
