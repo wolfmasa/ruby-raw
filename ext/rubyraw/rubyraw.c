@@ -10157,6 +10157,12 @@ decode(VALUE self, VALUE path, VALUE opt){
     v[1] = StringValuePtr(path);
     int c = 2;
 
+
+    VALUE val = rb_hash_aref(opt, ID2SYM(rb_intern("print_message")));
+    if(val == Qtrue){
+        v[2] = "-v";
+        c++;
+    }
 /**
     VALUE val = rb_hash_aref(opt, rb_str_new2("Print_Message"));
     if(! NIL_P(val)){
