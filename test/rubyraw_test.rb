@@ -15,9 +15,19 @@ require 'fileutils'
   def test_filepath_input_decode_function
     filename = "IMG_2112.CR2"
     ppm = File.basename(filename) + '.ppm'
-    FileUtils.rm ppm
+    #FileUtils.rm(ppm) if File.exist?(ppm)
     assert(! ppm)
     assert(Rubyraw::Raw.new.decode(filename, {})==0)
     assert(File.exist?(ppm))
   end
+=begin
+  def test_verbose_decode_function
+    filename = "IMG_2112.CR2"
+    ppm = File.basename(filename) + '.ppm'
+    FileUtils.rm(ppm) if File.exist?(ppm)
+    assert(! ppm)
+    assert(Rubyraw::Raw.new.decode(filename, {"print":true})==0)
+    assert(File.exist?(ppm))
+  end
+=end
 end
