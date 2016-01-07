@@ -10153,15 +10153,17 @@ decode(VALUE self, VALUE path, VALUE opt){
     Check_Type(path, T_STRING);
 
     char* v[16] = {0};
-    v[0] = "ruby.exe";
-    v[1] = StringValuePtr(path);
-    int c = 2;
+    int c = 0;
+    v[c++] = "ruby.exe";
 
 
     VALUE val = rb_hash_aref(opt, ID2SYM(rb_intern("print_message")));
-    if(val == Qtrue){
-        v[2] = "-v";
-        c++;
+    if(val == Qtrue) v[c++] = "-v";
+
+    v[c++] = StringValuePtr(path);
+
+    for(int i=0; i<c; i++){
+        printf("\narg[%d]:%s\n", i, v[i]);
     }
 /**
     VALUE val = rb_hash_aref(opt, rb_str_new2("Print_Message"));

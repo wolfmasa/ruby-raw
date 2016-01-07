@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+*.ppm
 *~
 tmp/
 =======
@@ -37,4 +37,3 @@ build/
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
->>>>>>> 3a8824c82cf04f16776d299028c48095506a9b14
