@@ -10154,22 +10154,29 @@ decode(VALUE self, VALUE path, VALUE opt){
 
     char* v[16] = {0};
     int c = 0;
+    int debug_mode = 0;
     v[c++] = "ruby.exe";
 
+    if(opt != Qnil){
+        if(Qtrue == rb_hash_aref(opt, ID2SYM(rb_intern("debug_mode"))))
+            debug_mode = 1;
 
-    if(Qtrue == rb_hash_aref(opt, ID2SYM(rb_intern("print_message"))))
-        v[c++] = "-v";
+        if(Qtrue == rb_hash_aref(opt, ID2SYM(rb_intern("print_message"))))
+            v[c++] = "-v";
 
-    if(Qtrue == rb_hash_aref(opt, ID2SYM(rb_intern("apply_awb"))))
-        v[c++] = "-a";
+        if(Qtrue == rb_hash_aref(opt, ID2SYM(rb_intern("apply_awb"))))
+            v[c++] = "-a";
 
-    if(Qtrue == rb_hash_aref(opt, ID2SYM(rb_intern("tiff_mode"))))
-        v[c++] = "-T";
+        if(Qtrue == rb_hash_aref(opt, ID2SYM(rb_intern("tiff_mode"))))
+            v[c++] = "-T";
+    }
 
     v[c++] = StringValuePtr(path);
 
-    for(int i=0; i<c; i++){
-        printf("\narg[%d]:%s\n", i, v[i]);
+    if(debug_mode!=0){
+        for(int i=0; i<c; i++){
+            printf("\narg[%d]:%s\n", i, v[i]);
+        }
     }
 
 #if 0
