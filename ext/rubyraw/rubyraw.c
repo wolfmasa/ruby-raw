@@ -10163,6 +10163,9 @@ decode(VALUE self, VALUE path, VALUE opt){
     if(Qtrue == rb_hash_aref(opt, ID2SYM(rb_intern("apply_awb"))))
         v[c++] = "-a";
 
+    if(Qtrue == rb_hash_aref(opt, ID2SYM(rb_intern("tiff_mode"))))
+        v[c++] = "-T";
+
     v[c++] = StringValuePtr(path);
 
     for(int i=0; i<c; i++){
