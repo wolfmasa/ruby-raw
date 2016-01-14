@@ -36,7 +36,7 @@ opt[:apply_awb] = true # apply Auto White Balance with dcraw default
 opt[:tiff_mode] = true # output tiff file instead of ppm
 
 raw_path = '~/IMG_0001.CR2'
-decode(path, opt)
+Rubyraw::Raw.new.decode(path, opt)
 ```
 
 ## Development
