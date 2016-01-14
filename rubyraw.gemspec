@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Decode raw file of Digital camera with dcraw.}
   spec.description   = %q{Decode raw file of Digital camera with dcraw as ruby gem. If you want to decode, please use this.}
-  spec.homepage      = "http://wolfmasa.hatenadiary.com"
+  spec.homepage      = "https://github.com/wolfmasa/ruby-raw"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
   # delete this section to allow pushing this gem to any host.
