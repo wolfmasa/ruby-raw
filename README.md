@@ -3,6 +3,8 @@
 Library to decode Camera Raw file.
 Decode processing is constructed by DCRaw.
 
+[dcraw](https://www.cybercom.net/~dcoffin/dcraw/)
+
 DCRaw is a most famous program that decode raw file.
 This gem library include the dcraw.c as C-language extention.
 
@@ -27,7 +29,13 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-opt ={...} # hash type of decode option
+opt = Hash.new # hash type of decode option
+
+opt[:print_message] = true # print decode message
+opt[:apply_awb] = true # apply Auto White Balance with dcraw default
+opt[:tiff_mode] = true # output tiff file instead of ppm
+
+raw_path = '~/IMG_0001.CR2'
 decode(path, opt)
 ```
 
